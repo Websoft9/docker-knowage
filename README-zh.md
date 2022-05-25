@@ -57,10 +57,8 @@ sudo bash install-knowage
 
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
-curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-ln -sf /usr/local/bin/docker-compose  /usr/bin
 sudo systemctl start docker
+alias docker-compose='docker compose'
 ```
 
 #### 安装 Knowage
@@ -83,10 +81,9 @@ sudo docker-compose up -d
 
 修改 [docker-compose](docker-compose.yml) 文件中冲突的端口，然后再启动容器
 
-
 ### 使用说明
 
-启动应用后，本地浏览器访问 URL: *`http://服务器公网IP:9001`* 进入应用。  
+启动应用后，本地浏览器访问 URL: *`http://服务器公网IP:端口`* 进入应用。  
 
 下面是使用过程中可能需要的信息
 
@@ -98,12 +95,6 @@ sudo docker-compose up -d
 | ------- | -------- |
 |  biadmin | biadmin  |
 
-#### 服务和端口
-
-| 名称 | 端口号 | 用途 |  必要性 |
-| --- | --- | --- | --- |
-| knowage | 9001 | 浏览器访问 Knowage | Y |
-| mariadb | 3306 | TCP 访问MariaDB数据库 | Y |
 ## 文档
 
 [Knowage 管理员手册](https://support.websoft9.com/docs/knowage)
