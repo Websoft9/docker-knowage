@@ -17,22 +17,5 @@
   "user": {
     "username": "biadmin",
     "password": "biadmin"
-  },
-  "services":[
-    {
-      "name": "knowage",
-      "port": "9001",
-      "description_cn": "浏览器访问 Knowage",
-      "description_en": "Browser access to Knowage by Http",
-      "required": "Y"
-    },
-    {
-      "name": "mariadb",
-      "port": "3306",
-      "description_cn": "TCP 访问MariaDB数据库",
-      "description_en": "Accessing MySQL database with TCP",
-      "required": "Y"
-    }
-  ]
-
+  }
 }
