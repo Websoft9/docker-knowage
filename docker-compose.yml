@@ -61,7 +61,7 @@ services:
 
   knowagecache:
     image: mariadb:$DB_MARIADB_VERSION
-    container_name: $APP_CONTAINER_NAME-cache
+    container_name: $APP_NAME-cache
     restart: always
     environment:
       - MYSQL_USER=$DB_MARIADB_CACHE_USER
