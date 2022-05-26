@@ -12,31 +12,21 @@ services:
     ports:
       - "$APP_PORT:8080"
     volumes:
-      - $VOLUMES_PATH_PREFIX/resources:/home/knowage/apache-tomcat/resources
+      - knowage:/home/knowage/apache-tomcat/resources
     environment:
       - DB_HOST=$DB_MARIADB_HOST
       - DB_PORT=$DB_MARIADB_PORT
       - DB_DB=$DB_MARIADB_NAME
       - DB_USER=$DB_MARIADB_USER
       - DB_PASS=$DB_MARIADB_PASSWORD
-
       - CACHE_DB_HOST=$DB_MARIADB_CACHE_HOST
       - CACHE_DB_PORT=$DB_MARIADB_CACHE_PORT
       - CACHE_DB_DB=$DB_MARIADB_CACHE_NAME
       - CACHE_DB_USER=$DB_MARIADB_CACHE_USER
       - CACHE_DB_PASS=$DB_MARIADB_PASSWORD
-
       - HMAC_KEY=$APP_HMAC_KEY
       - PASSWORD_ENCRYPTION_SECRET=$APP_PASSWORD_ENCRYPTION_SECRET
       - PUBLIC_ADDRESS=localhost
-
-  # knowage 8.0 need add this line:
-  # hazelcast:
-  #   image: hazelcast/hazelcast:3.6.5
-  #   environment:
-  #     - JAVA_OPTS=-Dhazelcast.local.publicAddress=hazelcast -Dhazelcast.config=/opt/hazelcast/hazelcast.xml
-  #   volumes:
-  #     - $VOLUMES_PATH_PREFIX/hazelcast-server.xml:/opt/hazelcast/hazelcast.xml
 
   knowagepython:
     container_name: $APP_CONTAINER_NAME-python
