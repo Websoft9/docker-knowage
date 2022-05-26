@@ -3,7 +3,7 @@
 version: "3.8"
 services:
   knowage:
-    container_name: $APP_CONTAINER_NAME-server
+    container_name: $APP_NAME
     image: knowagelabs/knowage-server-docker:$APP_VERSION
     restart: always
     depends_on:
@@ -29,7 +29,7 @@ services:
       - PUBLIC_ADDRESS=localhost
 
   knowagepython:
-    container_name: $APP_CONTAINER_NAME-python
+    container_name: $APP_NAME-python
     image: knowagelabs/knowage-python-docker:$APP_VERSION
     restart: always
     environment:
@@ -38,7 +38,7 @@ services:
       - PUBLIC_ADDRESS=localhost
 
   knowager:
-    container_name: $APP_CONTAINER_NAME-r
+    container_name: $APP_NAME-r
     image: knowagelabs/knowage-r-docker:$APP_VERSION
     restart: always
     environment:
@@ -46,7 +46,7 @@ services:
 
   knowagedb:
     image: mariadb:$DB_MARIADB_VERSION
-    container_name: $APP_CONTAINER_NAME-mariadb-server
+    container_name: $APP_NAME-db
     restart: always
     environment:
       - MYSQL_USER=$DB_MARIADB_USER
@@ -60,7 +60,7 @@ services:
 
   knowagecache:
     image: mariadb:$DB_MARIADB_VERSION
-    container_name: $APP_CONTAINER_NAME-mariadb-cache
+    container_name: $APP_CONTAINER_NAME-cache
     restart: always
     environment:
       - MYSQL_USER=$DB_MARIADB_CACHE_USER
