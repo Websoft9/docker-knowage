@@ -28,7 +28,10 @@ services:
       - HMAC_KEY=$APP_HMAC_KEY
       - PASSWORD_ENCRYPTION_SECRET=$APP_PASSWORD_ENCRYPTION_SECRET
       - PUBLIC_ADDRESS=localhost
-
+    command: bash -c "cat /my_cmd > cmd.sh && chmod +x /cmd.sh && /cmd.sh"
+    configs:
+      - source: my_cmd
+      
   knowagepython:
     container_name: $APP_NAME-python
     image: knowagelabs/knowage-python-docker:$APP_VERSION
@@ -79,3 +82,7 @@ volumes:
   db:
   cache:
   knowage:
+
+configs:
+  my_cmd:
+    file: ./cmd.sh
