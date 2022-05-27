@@ -28,7 +28,7 @@ services:
       - HMAC_KEY=$APP_HMAC_KEY
       - PASSWORD_ENCRYPTION_SECRET=$APP_PASSWORD_ENCRYPTION_SECRET
       - PUBLIC_ADDRESS=localhost
-    command: bash -c "cat /my_cmd > /home/knowage/cmd.sh && chmod +x /cmd.sh && /cmd.sh"
+    command: bash -c "cd /home/knowage && cat /my_cmd > cmd.sh && chmod +x cmd.sh && cmd.sh"
     configs:
       - source: my_cmd
       
